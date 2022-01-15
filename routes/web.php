@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
+| routes are loaded by the RouteServiceProvider within a group whichAboutUsController
 | contains the "web" middleware group. Now create something great!
 |
 */
@@ -59,6 +59,14 @@ Route::get('/admin/slider/delete/{id}', [App\Http\Controllers\Admin\SliderContro
 Route::get('/admin/about-us/update', [App\Http\Controllers\Admin\AboutUsController::class, 'update'])->name('admin.about-us.update');
 Route::post('/admin/about-us/update', [App\Http\Controllers\Admin\AboutUsController::class, 'updateSubmit'])->name('admin.about-us.update');
 
+//ProductController
+
+// slider Create
+Route::get('/admin/product/create', [App\Http\Controllers\Admin\ProductController::class, 'create'])->name('admin.product.create');
+Route::post('/admin/product/store', [App\Http\Controllers\Admin\ProductController::class, 'store'])->name('admin.product.create');
+Route::post('/admin/product/update', [App\Http\Controllers\Admin\ProductController::class, 'update'])->name('admin.product.update');
+Route::get('/admin/product/index', [App\Http\Controllers\Admin\ProductController::class, 'index'])->name('admin.product.index');
+
 
 
 // category
@@ -92,3 +100,8 @@ Route::get('/admin/resubcategory/active/{id}', [App\Http\Controllers\Admin\Resub
 Route::get('/admin/resubcategory/deactive/{id}', [App\Http\Controllers\Admin\ResubCategoryController::class, 'deactive']);
 Route::get('/admin/resubcategory/edit/{id}', [App\Http\Controllers\Admin\ResubCategoryController::class, 'edit']);
 Route::get('/admin/resubcategory/delete/{id}', [App\Http\Controllers\Admin\ResubCategoryController::class, 'delete']);
+
+
+Route::get('/get/subcategory/all/{cate_id}', [App\Http\Controllers\Api\ApiController::class, 'subcatagory']);
+
+Route::get('/get/resubcategory/all/{cate_id}', [App\Http\Controllers\Api\ApiController::class, 'resubcatagory']);

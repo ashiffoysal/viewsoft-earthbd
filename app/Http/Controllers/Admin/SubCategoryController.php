@@ -180,9 +180,4 @@ class SubCategoryController extends Controller
             return redirect()->back()->with($notification);
         }
     }
-
-    public function try(Request $request)
-    {
-        return "hello nipen";
-    }
 }

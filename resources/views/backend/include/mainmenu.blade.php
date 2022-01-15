@@ -172,6 +172,33 @@
 					</div>
 				</div>
 			</div>
+            <div data-kt-menu-trigger="click" class="menu-item menu-accordion @if(request()->routeIs('admin.product*')) here show @endif">
+				<span class="menu-link">
+					<span class="menu-icon">
+						<i class="bi bi-layers fs-3"></i>
+					</span>
+					<span class="menu-title">PRODUCT SECTION</span>
+					<span class="menu-arrow"></span>
+				</span>
+				<div class="menu-sub menu-sub-accordion menu-active-bg">
+					<div class="menu-item">
+						<a class="menu-link {{ request()->routeIs('admin.product.create*') ? 'active' : '' }}"  href="{{ url('/admin/product/create') }}">
+							<span class="menu-bullet">
+								<span class="bullet bullet-dot"></span>
+							</span>
+							<span class="menu-title"> Product Create</span>
+						</a>
+					</div>
+					<div class="menu-item">
+						<a class="menu-link {{ request()->routeIs('admin.product.index*') ? 'active' : '' }}" href="{{ url('/admin/product/index') }}">
+							<span class="menu-bullet">
+								<span class="bullet bullet-dot"></span>
+							</span>
+							<span class="menu-title">All Product</span>
+						</a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

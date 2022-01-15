@@ -14,6 +14,7 @@
 		<link rel="stylesheet" href="{{asset('backend')}}/assets/izitost.css">
 		<link rel="stylesheet" href="{{asset('backend')}}/assets/datatabels/dataTables.min.css">
 		<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{asset('backend')}}/assets/css/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 		<link href="{{asset('backend')}}/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
@@ -2551,9 +2552,18 @@
 		<script src="{{asset('backend')}}/assets/js/scripts.bundle.js"></script>
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Page Custom Javascript(used by this page)-->
-
+        <script src="{{asset('backend')}}/assets/js/spartan-multi-image-picker.js"></script>
+        <script src="{{asset('backend')}}/assets/plugins/Bootstrap-4-Tag-Input-Plugin-jQuery/tagsinput.js"></script>
 
 		<script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+        <script>
+            $(document).ready(function() {
+                $("#tags").tagsinput('items');
+                $("#searchitem").select2({
+                    minimumResultsForSearch: Infinity
+                });
+            });
+        </script>
 		<script>
 		$(document).on("click", "#delete", function(e) {
 			e.preventDefault();
@@ -2618,6 +2628,64 @@
 	height: 300,  
   });
 });
+</script>
+
+
+<script>
+    $(document).ready(function() {
+
+        $('#container').removeClass('mainnav-lg').addClass('mainnav-sm');
+        $("#thumbnail_img").spartanMultiImagePicker({
+            fieldName: 'thumbnail_img',
+            maxCount: 1,
+            rowHeight: '200px',
+            groupClassName: 'col-lg-3 col-md-4 col-sm-4 col-xs-6',
+            maxFileSize: '',
+            dropFileLabel: "Drop Here",
+            onExtensionErr: function(index, file) {
+                console.log(index, file, 'extension err');
+                alert('Please only input png or jpg type file')
+            },
+            onSizeErr: function(index, file) {
+                console.log(index, file, 'file size too big');
+                alert('File size too big');
+            }
+        });
+
+        $("#photos").spartanMultiImagePicker({
+            fieldName: 'photos[]',
+            maxCount: 10,
+            rowHeight: '200px',
+            groupClassName: 'col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-6',
+            maxFileSize: '',
+            dropFileLabel: "Drop Here",
+            onExtensionErr: function(index, file) {
+                console.log(index, file, 'extension err');
+                alert('Please only input png or jpg type file')
+            },
+            onSizeErr: function(index, file) {
+                console.log(index, file, 'file size too big');
+                alert('File size too big');
+            }
+        });
+        $("#product_img").spartanMultiImagePicker({
+            fieldName: 'product_img',
+            maxCount: 1,
+            rowHeight: '450px',
+            groupClassName: 'col-xl-12 col-md-12 col-sm-12 col-xs-12',
+            maxFileSize: '',
+            dropFileLabel: "Drag & Drop",
+            onExtensionErr: function(index, file) {
+                console.log(index, file, 'extension err');
+                alert('Please only input png or jpg type file')
+            },
+            onSizeErr: function(index, file) {
+                console.log(index, file, 'file size too big');
+                alert('File size too big');
+            }
+        });
+
+    });
 </script>
 		<script src="{{asset('backend')}}/assets/js/custom/widgets.js"></script>
 		<script src="{{asset('backend')}}/assets/datatabels/dataTables.min.js"></script>
